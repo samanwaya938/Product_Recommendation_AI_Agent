@@ -1,0 +1,6 @@
+phidata
+streamlit
+google-generativeai
+firecrawl-py
+python-dotenv
+
