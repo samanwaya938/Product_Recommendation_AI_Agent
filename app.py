@@ -3,6 +3,7 @@ from phi.model.google import Gemini
 from phi.tools.firecrawl import FirecrawlTools
 import os
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
 
@@ -30,4 +31,17 @@ agent = Agent(
 
 )
 
-agent.print_response("Please suggest me Jeans for men within Rs.1000", stream=True)
+# agent.print_response("Please suggest me Jeans for men within Rs.1000", stream=True)
+
+st.title("Shopping Partner")
+
+user_input = st.text_input("Enter your requirements:")
+
+if st.button("Submit"):
+    response = agent.print_response(user_input)
+    if response:  # Check if the response is not None
+        st.write(response)
+    else:
+        st.write("No response received. Please try again.")
+
+  
